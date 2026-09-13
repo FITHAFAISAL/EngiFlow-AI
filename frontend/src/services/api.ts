@@ -4,7 +4,8 @@ import {
   WhatIfResult, RequirementImpactResult, RAGResponse, KnowledgeGraphData, AIReviewResult
 } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL ? `${import.meta.env.VITE_API_BASE_URL}/api` : '/api';
+const apiBaseEnv = (import.meta as any).env?.VITE_API_BASE_URL;
+const API_BASE = apiBaseEnv ? `${apiBaseEnv}/api` : '/api';
 
 export const api = {
   getProjects: async () => {
